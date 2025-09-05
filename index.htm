@@ -3,12 +3,54 @@
     <title>mike</title>
   </head>
   <body>
+    <h4>mike</h4>
+
     <div>
-      <input/>
+      <input id='n1' />
       <span>x +</span>
-      <input/>
+      <input id='n2' />
       <span>y =</span>
-      <input/>
+      <input id='n3' />
     </div>
+
+    <br/>
+
+    <div>
+      <input id='n4' />
+      <span>x +</span>
+      <input id='n5' />
+      <span>y =</span>
+      <input id='n6' />
+    </div>
+
+    <br/>
+
+    <div>
+      <button id='bt'>Вычислить</button>
+      <br/><br/>
+      <span>x = </span><input id='result1' />
+      <br/><br/>
+      <span>y = </span><input id='result2' />
+    </div>
+
+    <script>
+      const button = document.getElementById('bt');
+      button.onclick = () => {
+	      const a1 = parseFloat(document.getElementById('n1').value);
+        const b1 = parseFloat(document.getElementById('n2').value);
+        const c1 = parseFloat(document.getElementById('n3').value);
+        const a2 = parseFloat(document.getElementById('n4').value);
+        const b2 = parseFloat(document.getElementById('n5').value);
+        const c2 = parseFloat(document.getElementById('n6').value);
+        const D = a1 * b2 - a2 * b1;
+	      if(D === 0 || isNaN(D)){
+          document.getElementById('result1').value = 'Нет решения';
+          document.getElementById('result2').value = 'Нет решения';
+        }else {
+          document.getElementById('result1').value = (c1 * b2 - c2 * b1) / D;
+          document.getElementById('result2').value = (a1 * c2 - a2 * c1) / D;
+      	}
+      };
+    </script>
   </body>
 </html>
